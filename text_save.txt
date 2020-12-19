@@ -1,0 +1,10 @@
+[client]
+database = port_data
+user = djangouser
+password = password
+default-character-set = utf8
+
+
+Username (leave blank to use 'tusher'): admin
+Email address: admin@tusher16.com
+Password: tusher887437
