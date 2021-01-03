@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-
 {% load static %}
+{% load active_link_tags %}
+
+<!DOCTYPE html>
 
 <html lang="en"> 
 <head>
-	<title>DevCard - Bootstrap 4 vCard &amp; Portfolio Template For Developers</title>
+	<title>{{ name }} </title>
 	
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -32,7 +33,7 @@
 	
 	<header class="header text-center">	    
 		<div class="force-overflow">
-			<h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Simon Doe</a></h1>
+			<h1 class="blog-name pt-lg-4 mb-0"><a href="{% url 'home_view' %}">{{ name }}</a></h1>
 			
 			<nav class="navbar navbar-expand-lg navbar-dark" >
 				
@@ -42,32 +43,35 @@
 				
 				<div id="navigation" class="collapse navbar-collapse flex-column" >
 					<div class="profile-section pt-3 pt-lg-0">
-						<img class="profile-image mb-3 rounded-circle mx-auto" src="{% static 'images/profile.png' %}" alt="image" >			
+						<img class="profile-image mb-3 rounded-circle mx-auto" src="{{ side_profile_pic.url }}" alt="image" >			
 						
-						<div class="bio mb-3">Hi, my name is Simon Doe and I'm a senior software engineer. Welcome to my personal website!</div><!--//bio-->
+						<div class="bio mb-3">{{ short_intro }}</div><!--//bio-->
 						<ul class="social-list list-inline py-2 mx-auto">
-							<li class="list-inline-item"><a href="https://www.facebook.com/tusher16"><i class="fab fa-facebook-f fa-fw"></i></a></li>
-							<li class="list-inline-item"><a href="https://www.linkedin.com/in/tusher16/"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
-							<li class="list-inline-item"><a href="https://github.com/tusher16"><i class="fab fa-github-alt fa-fw"></i></a></li>
-							<li class="list-inline-item"><a href="https://www.researchgate.net/profile/Mohammad_Tusher"><i class="fab fa-researchgate fa-fw"></i></a></li>
-                            <li class="list-inline-item"><a href="https://scholar.google.ca/citations?hl=en&user=0A01B2UAAAAJ&fbclid=IwAR39XO9oYncZGVLvN-jU5CkStPc2zbrTorqcucivJuo5vtJeHW9lAqd3fBg"><i class="fab fa-google fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="{{ facebook_link }}" target="_blank"><i class="fab fa-facebook-f fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="{{ linkedin_link }}" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="{{ github_link }}" target="_blank"><i class="fab fa-github-alt fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="{{ researchgate_link }}" target="_blank"><i class="fab fa-researchgate fa-fw"></i></a></li>
+                            <li class="list-inline-item"><a href="{{ google_sch_link }}" target="_blank"><i class="fab fa-google fa-fw"></i></a></li>
                             
 						</ul><!--//social-list-->
 						<hr> 
 					</div><!--//profile-section-->
 					
+					
 					<ul class="navbar-nav flex-column text-left">
-						<li class="nav-item active">
-							<a class="nav-link" href="{% url 'home_view' %}"><i class="fas fa-user fa-fw mr-2"></i>About Me<span class="sr-only">(current)</span></a>
+						{% url 'home_view' as url %}
+						<li class="nav-item {% if request.path == url %}active{% endif %}"> 
+							<a class="nav-link" href="{{ url }}"><i class="fas fa-user fa-fw mr-2"></i>About Me<span class="sr-only">(current)</span></a>
 						</li>
-						<li class="nav-item">
+						
+						<li class="nav-item {% active_link 'portfolio_name' 'active' %} ">
 							<a class="nav-link" href="{% url 'portfolio_name' %}"><i class="fas fa-laptop-code fa-fw mr-2"></i>Portfolio</a>
 						</li>
 						
-						<li class="nav-item">
+						<li class="nav-item {% active_link 'resume_name' 'active' %} ">
 							<a class="nav-link" href="{% url 'resume_name' %}"><i class="fas fa-file-alt fa-fw mr-2"></i>Resume</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item {% active_link 'blog_name' 'active' %}">
 							<a class="nav-link" href="{% url 'blog_name' %}"><i class="fas fa-blog fa-fw mr-2"></i>Blog</a>
 						</li>
 						<li class="nav-item">
@@ -87,7 +91,7 @@
 					</ul>
 					
 					<div class="my-2">
-						<a class="btn btn-primary" href="contact.html" target="_blank"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a>
+						<a class="btn btn-primary" href="{% url 'contact_view' %}" target="_blank"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a>
 					</div>
 					
 	
