@@ -18,7 +18,7 @@
 							<a class="btn btn-secondary mb-3" href="{% url 'resume_name' %}"><i class="fas fa-file-alt mr-2"></i><span class="d-none d-md-inline">View</span> Resume</a>
 						</div>
 					</div><!--//media-body-->
-					<img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" src="images/{{ main_profile_pic }}" alt="">
+					<img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0" src="{{ main_profile_pic.url }}" alt="">
 				</div>
 			</div>
 		</section><!--//about-me-section-->
@@ -252,6 +252,9 @@
 				</div><!--//row-->
 				<div class="text-center py-3"><a href="{% url 'blog_name' %}" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right mr-2"></i>View Blog</a></div>
 			</div><!--//container-->
+
+
+			
 			
 		</section><!--//latest-blog-section-->
 

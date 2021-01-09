@@ -18,6 +18,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -83,10 +85,12 @@ WSGI_APPLICATION = 'personal_portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': '/etc/mysql/my.cnf',
-        },
-    }
+        'NAME': 'port_data',
+        'USER': 'djangouser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    },
 }
 
 

@@ -1,13 +1,20 @@
 from django.shortcuts import render
+from django.template.loader import get_template
 from main_home.models import Side_Profile
+
+from django.views import generic
+
+from .models import Project
 
 # Create your views here.
 
-
+    
 def portfolio_view(request):
 
     obj = Side_Profile.objects.get()
 
+    project_list = Project.objects.all().filter(status=1).order_by('-created_on')
+  
 
     context = {
         'name': obj.name,
@@ -23,8 +30,16 @@ def portfolio_view(request):
         'my_website_link': obj.my_website_link,
         'main_profile_pic': obj.main_profile_pic,
         'Wid_Short_intro': obj.Wid_Short_intro,
-        
+
+        'project_list': project_list,
+            
     }
 
 
     return render(request, 'portfolio/portfolio.html', context)
+
+
+
+class portfolioDetail(generic.DetailView):
+    model = Project
+    template_name = 'portfolio/project.html'
