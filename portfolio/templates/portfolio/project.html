@@ -5,9 +5,9 @@
     <div class="main-wrapper">
 	    <section class="cta-section theme-bg-light py-5">
 		    <div class="container single-col-max-width">
-			    <h2 class="heading text-center">Case Study: Project Name</h2>
+			    <h2 class="heading text-center">Case Study:{% block project_title %} {{ object.project_title }} {% endblock project_title %} </h2>
 			    <div class="project-intro text-center">
-					<p class="mb-0 lead">Project intro goes here. In the intro it's a good idea to answer a potential client's need/problem so it's more likely to land your next project or job.</p>
+					<p class="mb-0 lead">{{ project.project_discription }}</p>
 				</div>
 			    
 		    </div><!--//container-->
@@ -15,22 +15,20 @@
 	    <section class="project px-3 py-5 p-md-5">
 		    <div class="container">
 			    <div class="project-meta media flex-column flex-md-row p-4 theme-bg-light">
-				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 rounded d-none d-md-inline-block" src="assets/images/project/project-3.jpg" alt="">
+				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 rounded d-none d-md-inline-block" src="{{ project.project_main_image.url }}" alt="">
 					<div class="media-body">
 					    <div class="client-info">
-						    <h3 class="client-name font-weight-bold mb-4">Client Name</h3>
+						    <h3 class="client-name font-weight-bold mb-4">{{ project.client_name }}</h3>
 						    <ul class="client-meta list-unstyled">
-							    <li class="mb-2"><i class="fas fa-industry fa-fw mr-2"></i><strong>Industry:</strong> Tech</li>
-							    <li class="mb-2"><i class="fas fa-users fa-fw mr-2"></i><strong>Size:</strong> 100+</li>
-							    <li class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Website:</strong> <a class="theme-link" href="#">clientsite.com</a></li>
+							    <li class="mb-2"><i class="fas fa-industry fa-fw mr-2"></i><strong>Technology Used:</strong> {{ project.technology_used }}</li>
+							    <li class="mb-2"><i class="fas fa-users fa-fw mr-2"></i><strong>Size:</strong> {{ project.company_size }}</li>
+							    <li class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Website:</strong> <a class="theme-link" href="#">{{ project.client_link }}</a></li>
 							    
 						    </ul>
-						    <div class="client-bio mb-4">Short description of the client and project requirements. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</div>
+						    <div class="client-bio mb-4">{{ project.project_discription }}</div>
 						    <h4 class="subheading mb-3">Project Requirements</h4>
 						    <ul class="mb-0">
-							    <li class="mb-2">Requirement lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-							    <li class="mb-2">Requirement donec pede justo, fringilla vel, aliquet nec.</li>
-							    <li class="mb-2">Requirement phasellus ullamcorper ipsum rutrum nunc. </li>
+							    {{ project.project_requirement }}
 						    </ul>
 					    </div>					
 					</div><!--//media-body-->
@@ -38,28 +36,28 @@
 				<div class="project-sections py-5">
 					<div class="project-section mb-5">
 					    <h3 class="project-section-title mb-3">Project Overview</h3>
-					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. </p>
+					    <p>{{ project.project_overview }}</p>
 					</div><!--//project-section-->
 					
 					<div class="project-section mb-5">
 					     <h3 class="project-section-title">The Challenge</h3>
-					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. </p>
+					    <p>{{ project.project_Challenge }}</p>
 					     
 					</div><!--//project-section-->
 					
 					<div class="project-section mb-5">
 					     <h3 class="project-section-title">The Approach &amp; Solution</h3>
-					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. </p>
+					    <p>{{ project.approach_Solution }} </p>
 					    <div class="row mt-5">
 						    <div class="col-12 col-lg-6 mb-5">
-							    <img class="img-fluid rounded" src="assets/images/project/project-figure-1.jpg" alt="image">
+							    <img class="img-fluid rounded" src="{{ project.project_image_2.url }}" alt="image">
 						    </div>
 						    <div class="col-12 col-lg-6 mb-5">
-							    <img class="img-fluid rounded" src="assets/images/project/project-figure-2.jpg" alt="image">
+							    <img class="img-fluid rounded" src="{{ project.project_image_3.url }}" alt="image">
 						    </div>
 					    </div>
 						    
-					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. </p>
+					    <p> </p>
 					     
 					</div><!--//project-section-->
 					

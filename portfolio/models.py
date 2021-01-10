@@ -16,7 +16,7 @@ class Project(models.Model):
     project_discription = models.TextField(max_length=600,blank=True, null=True)
     project_main_image = models.ImageField(blank=True, null=True)   
 
-    company_size = models.CharField(max_length=200, unique=True, blank=True, null=True)
+    #company_size = models.CharField(max_length=200, unique=True, blank=True, null=True)
     client_name = models.CharField(max_length=200, unique=True, blank=True, null=True)
     technology_used = models.CharField(max_length=200, unique=True, blank=True, null=True)
     company_size = models.CharField(max_length=200, unique=True, blank=True, null=True)

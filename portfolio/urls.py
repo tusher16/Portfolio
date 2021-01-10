@@ -10,4 +10,4 @@ urlpatterns = [
 ]
 
 
-#{% static 'images/project/project-1.jpg' %}
+
